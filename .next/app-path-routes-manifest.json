@@ -1,6 +1,7 @@
 {
   "/_not-found/page": "/_not-found",
   "/_global-error/page": "/_global-error",
+  "/icon.svg/route": "/icon.svg",
   "/api/admin/custom-requests/route": "/api/admin/custom-requests",
   "/api/admin/orders/[reference]/route": "/api/admin/orders/[reference]",
   "/api/admin/orders/route": "/api/admin/orders",

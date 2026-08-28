@@ -18,8 +18,8 @@ export default {
         luxe: '0 24px 70px rgba(17,16,14,0.12)',
       },
       borderRadius: {
-        '4xl': '2rem'
-      }
+        '4xl': '2rem',
+      },
     },
   },
   plugins: [],

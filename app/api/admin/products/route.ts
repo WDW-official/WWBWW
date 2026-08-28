@@ -11,6 +11,9 @@ export async function GET(request: Request) {
     const products = await getAdminProducts()
     return NextResponse.json({ products })
   } catch {
-    return NextResponse.json({ error: 'Products could not be loaded. Check MongoDB configuration.' }, { status: 503 })
+    return NextResponse.json(
+      { error: 'Products could not be loaded. Check MongoDB configuration.' },
+      { status: 503 }
+    )
   }
 }

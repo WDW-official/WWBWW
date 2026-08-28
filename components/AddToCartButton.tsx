@@ -5,7 +5,15 @@ import type { Product } from '@/lib/types'
 import { useCart } from './CartProvider'
 import { useToast } from './ToastProvider'
 
-export default function AddToCartButton({ product, compact = false, iconOnlyOnMobile = false }: { product: Product; compact?: boolean; iconOnlyOnMobile?: boolean }) {
+export default function AddToCartButton({
+  product,
+  compact = false,
+  iconOnlyOnMobile = false,
+}: {
+  product: Product
+  compact?: boolean
+  iconOnlyOnMobile?: boolean
+}) {
   const { addProduct } = useCart()
   const { toast } = useToast()
 
@@ -13,7 +21,11 @@ export default function AddToCartButton({ product, compact = false, iconOnlyOnMo
     <button
       onClick={() => {
         addProduct(product)
-        toast({ type: 'success', title: 'Added to cart', message: `${product.name} has been added to your cart.` })
+        toast({
+          type: 'success',
+          title: 'Added to cart',
+          message: `${product.name} has been added to your cart.`,
+        })
       }}
       className={
         compact
@@ -22,7 +34,9 @@ export default function AddToCartButton({ product, compact = false, iconOnlyOnMo
       }
     >
       <ShoppingBag size={compact ? 13 : 16} />
-      <span className={iconOnlyOnMobile ? 'hidden sm:inline' : ''}>Add to cart</span>
+      <span className={iconOnlyOnMobile ? 'hidden sm:inline' : ''}>
+        Add to cart
+      </span>
     </button>
   )
 }

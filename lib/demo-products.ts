@@ -6,11 +6,15 @@ export const demoProducts: Product[] = [
     slug: 'celestial-mandala',
     name: 'Celestial Mandala',
     subtitle: 'Multi-layered wooden artwork',
-    description: 'A precision-cut, multi-layered statement piece designed to create shifting depth and shadow as the light changes.',
+    description:
+      'A precision-cut, multi-layered statement piece designed to create shifting depth and shadow as the light changes.',
     category: 'Mandalas',
     price: 27900000,
     currency: 'NGN',
-    images: ['/images/mockup/product-celestial.jpg', '/images/mockup/layers-mandala.jpg'],
+    images: [
+      '/images/mockup/product-celestial.jpg',
+      '/images/mockup/layers-mandala.jpg',
+    ],
     status: 'active',
     stock: 8,
     materials: 'Birch ply, oak veneer, hand-finished edges',
@@ -21,7 +25,8 @@ export const demoProducts: Product[] = [
     slug: 'african-geometry',
     name: 'African Geometry',
     subtitle: 'Architectural wall art',
-    description: 'Layered geometric wall art with a warm natural finish and crisp engraved detailing.',
+    description:
+      'Layered geometric wall art with a warm natural finish and crisp engraved detailing.',
     category: 'Wall Art',
     price: 19500000,
     currency: 'NGN',
@@ -34,7 +39,8 @@ export const demoProducts: Product[] = [
     slug: 'tree-of-life',
     name: 'The Tree of Life',
     subtitle: 'Layered wall art',
-    description: 'A sculptural tree design built from precisely aligned wood layers.',
+    description:
+      'A sculptural tree design built from precisely aligned wood layers.',
     category: 'Wall Art',
     price: 23500000,
     currency: 'NGN',
@@ -47,7 +53,8 @@ export const demoProducts: Product[] = [
     slug: 'aurora-lampshade',
     name: 'Aurora Lampshade',
     subtitle: 'Laser-cut lighting',
-    description: 'A warm decorative lampshade designed to cast patterned light across the room.',
+    description:
+      'A warm decorative lampshade designed to cast patterned light across the room.',
     category: 'Lighting',
     price: 26000000,
     currency: 'NGN',
@@ -73,7 +80,8 @@ export const demoProducts: Product[] = [
     slug: 'heritage-ornament',
     name: 'Heritage Ornament',
     subtitle: 'Precision-cut ornament',
-    description: 'A compact decorative piece with detailed laser-cut patterning.',
+    description:
+      'A compact decorative piece with detailed laser-cut patterning.',
     category: 'Ornaments',
     price: 6500000,
     currency: 'NGN',
@@ -86,7 +94,8 @@ export const demoProducts: Product[] = [
     slug: 'lotus-mandala',
     name: 'Lotus Mandala',
     subtitle: 'Layered floral mandala',
-    description: 'A calm, balanced mandala design with layered floral geometry.',
+    description:
+      'A calm, balanced mandala design with layered floral geometry.',
     category: 'Mandalas',
     price: 34000000,
     currency: 'NGN',
@@ -99,7 +108,8 @@ export const demoProducts: Product[] = [
     slug: 'bespoke-name-plaque',
     name: 'Bespoke Name Plaque',
     subtitle: 'Personalised wooden plaque',
-    description: 'A custom name plaque designed around your lettering, occasion, and finish.',
+    description:
+      'A custom name plaque designed around your lettering, occasion, and finish.',
     category: 'Personalised',
     price: 15000000,
     currency: 'NGN',

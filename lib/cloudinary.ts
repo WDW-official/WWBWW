@@ -1,7 +1,11 @@
 import { v2 as cloudinary } from 'cloudinary'
 
 export function hasCloudinaryConfig() {
-  return Boolean(process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET)
+  return Boolean(
+    process.env.CLOUDINARY_CLOUD_NAME &&
+    process.env.CLOUDINARY_API_KEY &&
+    process.env.CLOUDINARY_API_SECRET
+  )
 }
 
 export function configureCloudinary() {

@@ -1,3 +1,9 @@
 {
-  "/(site)/page": "app/(site)/page.js"
+  "/admin/page": "app/admin/page.js",
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/collections/page": "app/(site)/collections/page.js",
+  "/(site)/journal/page": "app/(site)/journal/page.js",
+  "/(site)/shop/page": "app/(site)/shop/page.js",
+  "/(site)/custom-work/page": "app/(site)/custom-work/page.js",
+  "/(site)/about/page": "app/(site)/about/page.js"
 }

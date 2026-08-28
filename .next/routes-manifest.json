@@ -169,6 +169,12 @@
       "namedRegex": "^/custom\\-work(?:/)?$"
     },
     {
+      "page": "/icon.svg",
+      "regex": "^/icon\\.svg(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.svg(?:/)?$"
+    },
+    {
       "page": "/journal",
       "regex": "^/journal(?:/)?$",
       "routeKeys": {},

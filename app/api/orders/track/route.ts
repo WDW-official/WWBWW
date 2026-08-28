@@ -9,7 +9,10 @@ export async function GET(request: Request) {
   const email = searchParams.get('email')?.trim()
 
   if (!reference) {
-    return NextResponse.json({ error: 'Order reference is required.' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Order reference is required.' },
+      { status: 400 }
+    )
   }
 
   const order = await findOrder(reference, email || undefined)

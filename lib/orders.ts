@@ -52,7 +52,10 @@ export async function createOrder(input: {
   return { ...document, id: result.insertedId.toString() }
 }
 
-export async function updateOrderPayment(reference: string, payment: Partial<Order>) {
+export async function updateOrderPayment(
+  reference: string,
+  payment: Partial<Order>
+) {
   const db = await getDb()
   await db.collection('orders').updateOne(
     { reference },
@@ -61,7 +64,7 @@ export async function updateOrderPayment(reference: string, payment: Partial<Ord
         ...payment,
         updatedAt: new Date().toISOString(),
       },
-    },
+    }
   )
 }
 

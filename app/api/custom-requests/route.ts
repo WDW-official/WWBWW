@@ -16,30 +16,44 @@ export async function POST(request: Request) {
   const description = String(formData.get('description') || '').trim()
 
   if (!name || !email || !description) {
-    return NextResponse.json({ error: 'Name, email, and project description are required.' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Name, email, and project description are required.' },
+      { status: 400 }
+    )
   }
 
-  const files = formData.getAll('files').filter((file): file is File => file instanceof File && file.size > 0)
+  const files = formData
+    .getAll('files')
+    .filter((file): file is File => file instanceof File && file.size > 0)
   let uploads: { url: string; publicId: string; originalName: string }[] = []
 
   if (files.length > 0) {
     if (!hasCloudinaryConfig()) {
-      return NextResponse.json({ error: 'File uploads are not configured yet. Send the request without files or add Cloudinary credentials.' }, { status: 503 })
+      return NextResponse.json(
+        {
+          error:
+            'File uploads are not configured yet. Send the request without files or add Cloudinary credentials.',
+        },
+        { status: 503 }
+      )
     }
 
     const cloudinary = configureCloudinary()
     uploads = await Promise.all(
       files.map(async (file) => {
-        const result = await cloudinary.uploader.upload(await fileToDataUri(file), {
-          folder: 'woodworks/custom-requests',
-          resource_type: 'auto',
-        })
+        const result = await cloudinary.uploader.upload(
+          await fileToDataUri(file),
+          {
+            folder: 'woodworks/custom-requests',
+            resource_type: 'auto',
+          }
+        )
         return {
           url: result.secure_url,
           publicId: result.public_id,
           originalName: file.name,
         }
-      }),
+      })
     )
   }
 
@@ -60,5 +74,8 @@ export async function POST(request: Request) {
     updatedAt: now,
   })
 
-  return NextResponse.json({ id: result.insertedId.toString(), uploads }, { status: 201 })
+  return NextResponse.json(
+    { id: result.insertedId.toString(), uploads },
+    { status: 201 }
+  )
 }

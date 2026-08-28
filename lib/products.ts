@@ -47,19 +47,24 @@ export async function getAdminProducts() {
 }
 
 export async function getProductBySlug(slug: string) {
-  const fallback = demoProducts.find((product) => product.slug === slug) || demoProducts[0]
+  const fallback =
+    demoProducts.find((product) => product.slug === slug) || demoProducts[0]
   if (!hasMongoConfig()) return fallback
 
   try {
     const db = await getDb()
-    const product = await db.collection<ProductDocument>('products').findOne({ slug, status: 'active' })
+    const product = await db
+      .collection<ProductDocument>('products')
+      .findOne({ slug, status: 'active' })
     return product ? serializeProduct(product) : null
   } catch {
     return null
   }
 }
 
-export async function createProduct(input: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>) {
+export async function createProduct(
+  input: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>
+) {
   const db = await getDb()
   const now = new Date().toISOString()
   const slug = input.slug || slugify(input.name)
@@ -73,7 +78,10 @@ export async function createProduct(input: Omit<Product, 'id' | 'createdAt' | 'u
   return { ...document, id: result.insertedId.toString() }
 }
 
-export async function updateProduct(id: string, input: Partial<Omit<Product, 'id' | 'createdAt' | 'updatedAt'>>) {
+export async function updateProduct(
+  id: string,
+  input: Partial<Omit<Product, 'id' | 'createdAt' | 'updatedAt'>>
+) {
   if (!ObjectId.isValid(id)) return null
 
   const db = await getDb()
@@ -86,7 +94,7 @@ export async function updateProduct(id: string, input: Partial<Omit<Product, 'id
     .findOneAndUpdate(
       { _id: new ObjectId(id) },
       { $set: update },
-      { returnDocument: 'after' },
+      { returnDocument: 'after' }
     )
 
   return result ? serializeProduct(result) : null

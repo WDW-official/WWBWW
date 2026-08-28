@@ -18,7 +18,10 @@ export async function POST(request: Request) {
   const images = Array.isArray(body.images) ? body.images.filter(Boolean) : []
 
   if (!name || !price || images.length === 0) {
-    return NextResponse.json({ error: 'Name, price, and at least one image are required.' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Name, price, and at least one image are required.' },
+      { status: 400 }
+    )
   }
 
   const product = await createProduct({
@@ -28,7 +31,9 @@ export async function POST(request: Request) {
     description: String(body.description || ''),
     category: String(body.category || 'Decorative Art'),
     price,
-    currency: String(body.currency || process.env.PAYSTACK_CURRENCY || 'NGN').toUpperCase(),
+    currency: String(
+      body.currency || process.env.PAYSTACK_CURRENCY || 'NGN'
+    ).toUpperCase(),
     images,
     stock: Number(body.stock || 0),
     status: body.status === 'draft' ? 'draft' : 'active',

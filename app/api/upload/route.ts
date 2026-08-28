@@ -14,14 +14,21 @@ export async function POST(request: Request) {
   const file = formData.get('file')
   const folder = String(formData.get('folder') || 'woodworks/products')
 
-  if (folder.includes('/products') && !isAdminRequest(request)) return unauthorized()
+  if (folder.includes('/products') && !isAdminRequest(request))
+    return unauthorized()
 
   if (!(file instanceof File)) {
     return NextResponse.json({ error: 'Upload a valid file.' }, { status: 400 })
   }
 
   if (!hasCloudinaryConfig()) {
-    return NextResponse.json({ error: 'File uploads are not configured yet. Add Cloudinary credentials.' }, { status: 503 })
+    return NextResponse.json(
+      {
+        error:
+          'File uploads are not configured yet. Add Cloudinary credentials.',
+      },
+      { status: 503 }
+    )
   }
 
   const cloudinary = configureCloudinary()

@@ -6,7 +6,10 @@ export const runtime = 'nodejs'
 
 const allowedStatuses = ['pending', 'paid', 'processing', 'completed', 'failed']
 
-export async function PATCH(request: Request, { params }: { params: Promise<{ reference: string }> }) {
+export async function PATCH(
+  request: Request,
+  { params }: { params: Promise<{ reference: string }> }
+) {
   if (!isAdminRequest(request)) return unauthorized()
 
   const { reference } = await params
@@ -14,7 +17,10 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ re
   const status = String(body.status || '')
 
   if (!allowedStatuses.includes(status)) {
-    return NextResponse.json({ error: 'Invalid order status.' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Invalid order status.' },
+      { status: 400 }
+    )
   }
 
   await updateOrderPayment(reference, { status: status as never })

@@ -32,7 +32,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [items])
 
   const value = useMemo<CartContextValue>(() => {
-    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+    const total = items.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    )
     const count = items.reduce((sum, item) => sum + item.quantity, 0)
 
     return {
@@ -45,7 +48,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           const existing = current.find((item) => item.productId === product.id)
           if (existing) {
             return current.map((item) =>
-              item.productId === product.id ? { ...item, quantity: item.quantity + 1 } : item,
+              item.productId === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
             )
           }
           return [
@@ -62,10 +67,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           ]
         })
       },
-      removeItem: (productId) => setItems((current) => current.filter((item) => item.productId !== productId)),
+      removeItem: (productId) =>
+        setItems((current) =>
+          current.filter((item) => item.productId !== productId)
+        ),
       updateQuantity: (productId, quantity) =>
         setItems((current) =>
-          current.map((item) => (item.productId === productId ? { ...item, quantity: Math.max(1, quantity) } : item)),
+          current.map((item) =>
+            item.productId === productId
+              ? { ...item, quantity: Math.max(1, quantity) }
+              : item
+          )
         ),
       clearCart: () => setItems([]),
       total,

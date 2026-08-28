@@ -1,6 +1,7 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/_global-error/page": "app/_global-error/page.js",
+  "/icon.svg/route": "app/icon.svg/route.js",
   "/api/admin/custom-requests/route": "app/api/admin/custom-requests/route.js",
   "/api/admin/orders/[reference]/route": "app/api/admin/orders/[reference]/route.js",
   "/api/admin/orders/route": "app/api/admin/orders/route.js",

@@ -8,8 +8,17 @@ export async function GET(request: Request) {
   if (!isAdminRequest(request)) return unauthorized()
 
   const db = await getDb()
-  const orders = await db.collection('orders').find().sort({ createdAt: -1 }).limit(50).toArray()
+  const orders = await db
+    .collection('orders')
+    .find()
+    .sort({ createdAt: -1 })
+    .limit(50)
+    .toArray()
   return NextResponse.json({
-    orders: orders.map((order) => ({ ...order, id: order._id.toString(), _id: undefined })),
+    orders: orders.map((order) => ({
+      ...order,
+      id: order._id.toString(),
+      _id: undefined,
+    })),
   })
 }
