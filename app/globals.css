@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { @apply bg-[#fbfaf7] text-ink antialiased; }
+* { box-sizing: border-box; }
+.editorial { font-family: Georgia, 'Times New Roman', serif; }
+.container-luxe { @apply mx-auto w-full max-w-[1500px] px-5 md:px-8 lg:px-10; }
+.btn-gold { @apply inline-flex min-h-11 items-center justify-center rounded-md bg-champagne px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(183,138,69,0.22)] transition hover:bg-[#9e7438]; }
+.btn-dark { @apply inline-flex items-center justify-center rounded-md border border-white/50 bg-black/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur transition hover:bg-white hover:text-black; }
+input, textarea, select { font-size: 16px; }
+
+::selection { background:#c89a59; color:#fff; }
+img { image-rendering:auto; }

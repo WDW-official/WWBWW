@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/admin/custom-requests": {},
+    "/api/admin/orders": {},
+    "/api/admin/orders/[reference]": {},
+    "/api/admin/products": {},
+    "/api/admin/products/[id]": {},
+    "/api/admin/summary": {},
+    "/api/checkout": {},
+    "/api/custom-requests": {},
+    "/api/orders/track": {},
+    "/api/paystack/verify": {},
+    "/api/products": {},
+    "/api/upload": {}
+  }
+}
