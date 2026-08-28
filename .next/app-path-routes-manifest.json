@@ -23,7 +23,7 @@
   "/(site)/journal/page": "/journal",
   "/(site)/order-tracking/page": "/order-tracking",
   "/(site)/product/[slug]/page": "/product/[slug]",
-  "/(site)/collections/page": "/collections",
+  "/(site)/shop/page": "/shop",
   "/(site)/page": "/",
-  "/(site)/shop/page": "/shop"
+  "/(site)/collections/page": "/collections"
 }

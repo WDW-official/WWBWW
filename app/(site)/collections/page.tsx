@@ -35,6 +35,14 @@ const collectionMeta = [
 
 export default async function Collections() {
   const products = await getProducts()
+  const categoryCounts = products.reduce<Record<string, number>>(
+    (counts, product) => {
+      if (!product.category) return counts
+      counts[product.category] = (counts[product.category] || 0) + 1
+      return counts
+    },
+    {}
+  )
   const productCategories = Array.from(
     new Set(products.map((product) => product.category).filter(Boolean))
   )
@@ -48,7 +56,9 @@ export default async function Collections() {
         products.find((product) => product.category === category)?.images[0] ||
         '/images/mockup/cat-tree.jpg',
     }))
-  const collections = [...collectionMeta, ...extraCollections]
+  const collections = [...collectionMeta, ...extraCollections].sort(
+    (a, b) => (categoryCounts[b.name] || 0) - (categoryCounts[a.name] || 0)
+  )
   const featuredProducts = products.slice(0, 4)
 
   return (
@@ -56,15 +66,13 @@ export default async function Collections() {
       <section className="container-luxe py-12 md:py-16">
         <div className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.15em]">Collections</div>
-          <h1 className="editorial mt-3 text-5xl leading-none md:text-6xl">
+          <h1 className="editorial mt-3 sm:text-5xl text-3xl leading-none md:text-6xl">
             ART FOR CONTEMPORARY SPACES.
           </h1>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {collections.map(({ name, description, image }) => {
-            const count = products.filter(
-              (product) => product.category === name
-            ).length
+            const count = categoryCounts[name] || 0
             return (
               <Link
                 href={{ pathname: '/shop', query: { category: name } }}
