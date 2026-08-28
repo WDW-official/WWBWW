@@ -88,7 +88,7 @@ export default async function Collections() {
                 </div>
                 <div className="p-5 md:p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <h2 className="editorial text-3xl">{name}</h2>
+                    <h2 className="editorial text-lg sm:text-3xl">{name}</h2>
                     <span className="shrink-0 rounded-full border border-black/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-black/50">
                       {count} {count === 1 ? 'piece' : 'pieces'}
                     </span>

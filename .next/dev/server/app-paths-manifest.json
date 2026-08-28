@@ -1,4 +1,7 @@
 {
+  "/api/admin/summary/route": "app/api/admin/summary/route.js",
+  "/api/admin/orders/route": "app/api/admin/orders/route.js",
+  "/api/admin/custom-requests/route": "app/api/admin/custom-requests/route.js",
   "/admin/page": "app/admin/page.js",
   "/(site)/page": "app/(site)/page.js",
   "/(site)/custom-work/page": "app/(site)/custom-work/page.js",
