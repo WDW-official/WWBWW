@@ -1074,13 +1074,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(241 237 230 / var(--tw-bg-opacity, 1));
 }
-.bg-\[\#f3ede4\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 237 228 / var(--tw-bg-opacity, 1));
-}
 .bg-\[\#fbfaf7\] {
   --tw-bg-opacity: 1;
   background-color: rgb(251 250 247 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#ffffff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -1120,6 +1120,10 @@ video {
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
 }
+.bg-\[\#000000\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1129,6 +1133,11 @@ video {
 .from-\[\#f3ede4\] {
   --tw-gradient-from: #f3ede4 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(243 237 228 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-\[\#ffffff\] {
+  --tw-gradient-from: #ffffff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 .via-\[\#f3ede4\]\/85 {
@@ -1301,12 +1310,16 @@ video {
 .text-\[11px\] {
   font-size: 11px;
 }
-.text-\[44px\] {
-  font-size: 44px;
+.text-\[38px\] {
+  font-size: 38px;
 }
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-sm {
   font-size: 0.875rem;
@@ -1319,13 +1332,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[38px\] {
-  font-size: 38px;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1353,9 +1359,6 @@ video {
 }
 .leading-7 {
   line-height: 1.75rem;
-}
-.leading-\[\.92\] {
-  line-height: .92;
 }
 .leading-\[\.95\] {
   line-height: .95;
@@ -1762,9 +1765,9 @@ img {
     gap: 1.75rem;
   }
 
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .sm\:text-5xl {
@@ -1772,9 +1775,14 @@ img {
     line-height: 1;
   }
 
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 @media (min-width: 768px) {
@@ -1809,10 +1817,6 @@ img {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:grid-cols-\[1fr_2fr_1fr\] {

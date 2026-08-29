@@ -28,16 +28,16 @@ const cats = [
     'Laser-cut lampshades and lighting.',
     '/images/mockup/cat-light.jpg',
   ],
-  [
-    'ORNAMENTS',
-    'Small pieces with extraordinary detail.',
-    '/images/mockup/cat-ornament.jpg',
-  ],
-  [
-    'PERSONALISED',
-    'Made uniquely for you.',
-    '/images/mockup/cat-personalised.jpg',
-  ],
+  // [
+  //   'ORNAMENTS',
+  //   'Small pieces with extraordinary detail.',
+  //   '/images/mockup/cat-ornament.jpg',
+  // ],
+  // [
+  //   'PERSONALISED',
+  //   'Made uniquely for you.',
+  //   '/images/mockup/cat-personalised.jpg',
+  // ],
   ['BESPOKE', 'Your idea. Our craft.', '/images/mockup/cat-bespoke.jpg'],
 ]
 
@@ -70,7 +70,7 @@ export default async function Home() {
   const products = await getProducts()
   return (
     <main>
-      <section className="relative overflow-hidden bg-[#f3ede4]">
+      <section className="relative overflow-hidden bg-[#ffffff]">
         <div className="grid min-h-[auto] items-stretch lg:min-h-[560px] lg:grid-cols-[0.92fr_1.08fr]">
           <div className="relative z-20 flex items-center px-5 py-12 md:px-8 md:py-16 lg:py-20 lg:pl-[max(2.5rem,calc((100vw-1500px)/2+2.5rem))] lg:pr-10">
             <div className="max-w-xl">
@@ -99,7 +99,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="relative hidden min-h-[290px] md:min-h-[390px] lg:block lg:min-h-[560px]">
-            <div className="absolute inset-y-0 left-0 z-10 hidden w-44 bg-gradient-to-r from-[#f3ede4] via-[#f3ede4]/85 to-transparent lg:block" />
+            <div className="absolute inset-y-0 left-0 z-10 hidden w-44 bg-gradient-to-r from-[#ffffff] via-[#f3ede4]/85 to-transparent lg:block" />
             <div className="absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-[#f3ede4] to-transparent lg:hidden" />
             <img
               src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1787885582/ChatGPT_Image_Aug_28_2026_03_51_47_AM_b59yij.png"
@@ -111,7 +111,7 @@ export default async function Home() {
       </section>
 
       <section className="container-luxe py-6 md:py-8">
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {cats.map(([t, s, i]) => (
             <Link
               href="/collections"
@@ -139,14 +139,14 @@ export default async function Home() {
       </section>
 
       <section className="container-luxe py-5">
-        <div className="grid overflow-hidden rounded-xl bg-[#efe4d5] lg:grid-cols-[.72fr_1.28fr]">
+        <div className="grid overflow-hidden rounded-xl bg-[#000000] lg:grid-cols-[.72fr_1.28fr]">
           <div className="p-8 md:p-12">
-            <h2 className="editorial sm:text-5xl text-2xl italic  tracking-[-.03em]">
+            <h2 className="editorial sm:text-4xl text-white text-2xl italic  tracking-[-.03em]">
               LAYER BY LAYER.
               <br />
               DETAIL BY DETAIL.
             </h2>
-            <p className="mt-5 max-w-sm text-sm leading-6 text-black/65">
+            <p className="mt-5 max-w-sm text-sm text-white leading-6 text-black/65">
               Multiple individual pieces of wood are precision-cut and assembled
               to create depth, geometry, texture and shadow.
             </p>
