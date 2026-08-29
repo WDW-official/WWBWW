@@ -38,7 +38,7 @@ const cats = [
   //   'Made uniquely for you.',
   //   '/images/mockup/cat-personalised.jpg',
   // ],
-  ['BESPOKE', 'Your idea. Our craft.', '/images/mockup/cat-bespoke.jpg'],
+  ['BESPOKE & PERSONALISED', 'Made uniquely for you, your idea. Our craft.', '/images/mockup/cat-bespoke.jpg'],
 ]
 
 const journal = [
@@ -126,7 +126,7 @@ export default async function Home() {
                 />
               </div>
               <div className="p-4">
-                <div className="text-[11px] font-semibold leading-tight">
+                <div className="text-[9px] sm:text-[11px] font-semibold leading-tight">
                   {t}
                 </div>
                 <div className="mt-1 text-[11px] leading-4 text-black/55">
