@@ -16,17 +16,17 @@ const cats = [
   [
     'MULTI-LAYERED MANDALAS',
     'Intricate layers. Extraordinary depth.',
-    '/images/mockup/cat-mandala.jpg',
+    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043528/WhatsApp_Image_2026-08-29_at_11.37.54_PM_c8g9cn.jpg',
   ],
   [
     'WALL ART',
     'Statement pieces for contemporary spaces.',
-    '/images/mockup/cat-tree.jpg',
+    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043453/Cosmic_Bloom_Angles_fm6fmp.png',
   ],
   [
     'LIGHT & SHADOW',
     'Laser-cut lampshades and lighting.',
-    '/images/mockup/cat-light.jpg',
+    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044173/Lamps_jul8xt.png',
   ],
   // [
   //   'ORNAMENTS',
@@ -38,7 +38,7 @@ const cats = [
   //   'Made uniquely for you.',
   //   '/images/mockup/cat-personalised.jpg',
   // ],
-  ['BESPOKE & PERSONALISED', 'Made uniquely for you, your idea. Our craft.', '/images/mockup/cat-bespoke.jpg'],
+  ['BESPOKE & PERSONALISED', 'Made uniquely for you, your idea. Our craft.', 'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044009/Bespoke_2_vjcsk3.png'],
 ]
 
 const journal = [
@@ -154,15 +154,10 @@ export default async function Home() {
               Explore mandalas
             </Link>
           </div>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-1">
             <img
-              src="/images/mockup/layers-exploded.jpg"
+              src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788046462/file_00000000000c82108c8a852fdbabb82d_shwvsv.png"
               alt="Exploded wooden mandala layers"
-              className="h-full min-h-[340px] w-full object-cover"
-            />
-            <img
-              src="/images/mockup/layers-mandala.jpg"
-              alt="Finished layered mandala"
               className="h-full min-h-[340px] w-full object-cover"
             />
           </div>
@@ -265,7 +260,7 @@ export default async function Home() {
           </div>
           <div className="grid grid-cols-1">
             <img
-              src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1787889464/ChatGPT_Image_Aug_28_2026_04_56_30_AM_bc3oge.png"
+              src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788046222/file_00000000cc2081f4b83496746d7a2f8a_c9af0c.png"
               className="h-full min-h-[300px] w-full object-cover"
               alt="Workshop"
             />
