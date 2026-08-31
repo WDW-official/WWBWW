@@ -1,4 +1,5 @@
 import ProductCard from '@/components/ProductCard'
+import AutoFilterSelect from '@/components/AutoFilterSelect'
 import { SlidersHorizontal } from 'lucide-react'
 import { getProducts } from '@/lib/products'
 import type { Product } from '@/lib/types'
@@ -17,6 +18,10 @@ type SortKey = keyof typeof sortLabels
 
 function getParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value
+}
+
+function isString(value: string | undefined): value is string {
+  return Boolean(value)
 }
 
 function sortProducts(products: Product[], sort: SortKey) {
@@ -42,13 +47,30 @@ export default async function Shop({
     new Set(products.map((product) => product.category).filter(Boolean))
   ).sort()
   const category = getParam(params.category) || 'all'
+  const subCollection = getParam(params.subCollection) || 'all'
   const sortParam = getParam(params.sort)
   const sort =
     sortParam && sortParam in sortLabels ? (sortParam as SortKey) : 'featured'
-  const filteredProducts =
+  const categoryProducts =
     category === 'all'
       ? products
       : products.filter((product) => product.category === category)
+  const subCollections = Array.from(
+    new Set(
+      categoryProducts
+        .map((product) => product.subCollection?.trim())
+        .filter(isString)
+    )
+  ).sort()
+  const activeSubCollection = subCollections.includes(subCollection)
+    ? subCollection
+    : 'all'
+  const filteredProducts =
+    activeSubCollection === 'all'
+      ? categoryProducts
+      : categoryProducts.filter(
+          (product) => product.subCollection === activeSubCollection
+        )
   const visibleProducts = sortProducts(filteredProducts, sort)
 
   return (
@@ -66,41 +88,48 @@ export default async function Shop({
             pieces made from natural wood.
           </p>
         </div>
-        <form className="flex flex-wrap gap-2 md:justify-end">
+        <div className="flex flex-wrap gap-2 md:justify-end">
           <label className="inline-flex items-center gap-2 rounded-md border border-black/15 bg-white px-3 py-2 text-xs">
             <SlidersHorizontal size={14} />
             <span className="sr-only">Filter by category</span>
-            <select
+            <AutoFilterSelect
               name="category"
               defaultValue={category}
-              className="bg-transparent text-xs outline-none"
-            >
-              <option value="all">All categories</option>
-              {categories.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
+              resetFields={['subCollection']}
+              options={[
+                { label: 'All categories', value: 'all' },
+                ...categories.map((item) => ({ label: item, value: item })),
+              ]}
+            />
           </label>
+          {subCollections.length > 0 && (
+            <label className="inline-flex items-center gap-2 rounded-md border border-black/15 bg-white px-3 py-2 text-xs">
+              <span className="sr-only">Filter by sub-collection</span>
+              <AutoFilterSelect
+                name="subCollection"
+                defaultValue={activeSubCollection}
+                options={[
+                  { label: 'All sub-collections', value: 'all' },
+                  ...subCollections.map((item) => ({
+                    label: item,
+                    value: item,
+                  })),
+                ]}
+              />
+            </label>
+          )}
           <label className="shrink-0 rounded-md border border-black/15 bg-white px-3 py-2 text-xs">
             <span className="sr-only">Sort products</span>
-            <select
+            <AutoFilterSelect
               name="sort"
               defaultValue={sort}
-              className="bg-transparent text-xs outline-none"
-            >
-              {Object.entries(sortLabels).map(([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-            </select>
+              options={Object.entries(sortLabels).map(([value, label]) => ({
+                label,
+                value,
+              }))}
+            />
           </label>
-          <button className="rounded-md bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white">
-            Apply
-          </button>
-        </form>
+        </div>
       </div>
       {visibleProducts.length ? (
         <div className="grid grid-cols-2 gap-4 py-10 sm:gap-7 lg:grid-cols-4">

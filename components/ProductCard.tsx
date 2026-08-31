@@ -21,6 +21,9 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="text-sm font-medium leading-5 sm:text-base">
           {product.name}
         </h3>
+        <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-champagne">
+          {product.category}
+        </p>
         <p className="mt-1 text-xs text-black/50">{product.subtitle}</p>
         <p className="mt-2 text-sm font-semibold">
           {formatMoney(product.price, product.currency)}

@@ -1,63 +1,15 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import ProductCard from '@/components/ProductCard'
+import { collections, getCollectionCount } from '@/lib/collections'
 import { getProducts } from '@/lib/products'
 
 export const dynamic = 'force-dynamic'
 
-const collectionMeta = [
-  {
-    name: 'Mandalas',
-    description: 'Intricate geometry built layer by layer.',
-    image: '/images/mockup/cat-mandala.jpg',
-  },
-  {
-    name: 'Wall Art',
-    description: 'Statement pieces for contemporary spaces.',
-    image: '/images/mockup/cat-tree.jpg',
-  },
-  {
-    name: 'Lighting',
-    description: 'Laser-cut forms designed to cast beautiful shadows.',
-    image: '/images/mockup/cat-light.jpg',
-  },
-  {
-    name: 'Ornaments',
-    description: 'Small pieces with extraordinary detail.',
-    image: '/images/mockup/cat-ornament.jpg',
-  },
-  {
-    name: 'Personalised',
-    description: 'Names, dates and details made uniquely for you.',
-    image: '/images/mockup/cat-personalised.jpg',
-  },
-]
-
 export default async function Collections() {
   const products = await getProducts()
-  const categoryCounts = products.reduce<Record<string, number>>(
-    (counts, product) => {
-      if (!product.category) return counts
-      counts[product.category] = (counts[product.category] || 0) + 1
-      return counts
-    },
-    {}
-  )
-  const productCategories = Array.from(
-    new Set(products.map((product) => product.category).filter(Boolean))
-  )
-  const knownCollections = collectionMeta.map((collection) => collection.name)
-  const extraCollections = productCategories
-    .filter((category) => !knownCollections.includes(category))
-    .map((category) => ({
-      name: category,
-      description: 'Explore available pieces from this collection.',
-      image:
-        products.find((product) => product.category === category)?.images[0] ||
-        '/images/mockup/cat-tree.jpg',
-    }))
-  const collections = [...collectionMeta, ...extraCollections].sort(
-    (a, b) => (categoryCounts[b.name] || 0) - (categoryCounts[a.name] || 0)
+  const orderedCollections = [...collections].sort(
+    (a, b) => getCollectionCount(products, b) - getCollectionCount(products, a)
   )
   const featuredProducts = products.slice(0, 4)
 
@@ -71,31 +23,45 @@ export default async function Collections() {
           </h1>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {collections.map(({ name, description, image }) => {
-            const count = categoryCounts[name] || 0
+          {orderedCollections.map((collection) => {
+            const count = getCollectionCount(products, collection)
             return (
               <Link
-                href={{ pathname: '/shop', query: { category: name } }}
+                href={`/collections/${collection.slug}`}
                 className="group overflow-hidden rounded-lg border border-black/10 bg-white"
-                key={name}
+                key={collection.slug}
               >
                 <div className="overflow-hidden bg-[#eee7de]">
                   <img
-                    src={image}
+                    src={collection.image}
                     className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                    alt={name}
+                    alt={collection.name}
                   />
                 </div>
                 <div className="p-5 md:p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <h2 className="editorial text-lg sm:text-3xl">{name}</h2>
+                    <h2 className="editorial text-lg sm:text-3xl">
+                      {collection.name}
+                    </h2>
                     <span className="shrink-0 rounded-full border border-black/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-black/50">
                       {count} {count === 1 ? 'piece' : 'pieces'}
                     </span>
                   </div>
                   <p className="mt-2 text-sm leading-6 text-black/55">
-                    {description}
+                    {collection.description}
                   </p>
+                  {collection.subCollections.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {collection.subCollections.map((subCollection) => (
+                        <span
+                          key={subCollection.slug}
+                          className="rounded-full bg-[#f1ede6] px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-black/55"
+                        >
+                          {subCollection.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em]">
                     View collection <ArrowRight size={14} />
                   </div>
@@ -103,32 +69,6 @@ export default async function Collections() {
               </Link>
             )
           })}
-          <Link
-            href="/custom-work"
-            className="group overflow-hidden rounded-lg border border-black/10 bg-white"
-          >
-            <div className="overflow-hidden bg-[#eee7de]">
-              <img
-                src="/images/mockup/cat-bespoke.jpg"
-                className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                alt="Bespoke"
-              />
-            </div>
-            <div className="p-5 md:p-6">
-              <div className="flex items-start justify-between gap-4">
-                <h2 className="editorial text-3xl">Bespoke</h2>
-                <span className="shrink-0 rounded-full border border-black/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-black/50">
-                  Custom
-                </span>
-              </div>
-              <p className="mt-2 text-sm leading-6 text-black/55">
-                Original pieces developed around your idea.
-              </p>
-              <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em]">
-                Start a project <ArrowRight size={14} />
-              </div>
-            </div>
-          </Link>
         </div>
       </section>
       {featuredProducts.length > 0 && (

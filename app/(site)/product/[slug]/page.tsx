@@ -20,6 +20,9 @@ export default async function Product({
 
   const productDetails = [
     ['Collection', product.category || 'Decorative Art'],
+    ...(product.subCollection
+      ? [['Sub-collection', product.subCollection]]
+      : []),
     ['Dimensions', product.dimensions || 'Standard studio size'],
     [
       'Construction',
@@ -32,6 +35,9 @@ export default async function Product({
   const whatsappMessage = [
     `Hello, I would like to buy this product: ${product.name}`,
     `Collection: ${product.category || 'Decorative Art'}`,
+    ...(product.subCollection
+      ? [`Sub-collection: ${product.subCollection}`]
+      : []),
     `Dimensions: ${product.dimensions || 'Standard studio size'}`,
     `Construction: ${
       product.materials ||

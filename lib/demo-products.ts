@@ -9,6 +9,7 @@ export const demoProducts: Product[] = [
     description:
       'A precision-cut, multi-layered statement piece designed to create shifting depth and shadow as the light changes.',
     category: 'Mandalas',
+    subCollection: 'Freedom Collection',
     price: 27900000,
     currency: 'NGN',
     images: [
@@ -28,6 +29,7 @@ export const demoProducts: Product[] = [
     description:
       'Layered geometric wall art with a warm natural finish and crisp engraved detailing.',
     category: 'Wall Art',
+    subCollection: 'Geometry Collection',
     price: 19500000,
     currency: 'NGN',
     images: ['/images/mockup/product-african.jpg'],
@@ -42,6 +44,7 @@ export const demoProducts: Product[] = [
     description:
       'A sculptural tree design built from precisely aligned wood layers.',
     category: 'Wall Art',
+    subCollection: 'Nature Collection',
     price: 23500000,
     currency: 'NGN',
     images: ['/images/mockup/product-tree.jpg'],
@@ -56,6 +59,7 @@ export const demoProducts: Product[] = [
     description:
       'A warm decorative lampshade designed to cast patterned light across the room.',
     category: 'Lighting',
+    subCollection: 'Lamp Collection',
     price: 26000000,
     currency: 'NGN',
     images: ['/images/mockup/product-lamp.jpg'],
@@ -69,6 +73,7 @@ export const demoProducts: Product[] = [
     subtitle: 'Large layered wall piece',
     description: 'A bold geometric centerpiece for contemporary interiors.',
     category: 'Mandalas',
+    subCollection: 'Freedom Collection',
     price: 38000000,
     currency: 'NGN',
     images: ['/images/mockup/product-geometric.jpg'],
@@ -83,6 +88,7 @@ export const demoProducts: Product[] = [
     description:
       'A compact decorative piece with detailed laser-cut patterning.',
     category: 'Ornaments',
+    subCollection: 'Heritage Collection',
     price: 6500000,
     currency: 'NGN',
     images: ['/images/mockup/product-heritage.jpg'],
@@ -97,6 +103,7 @@ export const demoProducts: Product[] = [
     description:
       'A calm, balanced mandala design with layered floral geometry.',
     category: 'Mandalas',
+    subCollection: 'Lotus Collection',
     price: 34000000,
     currency: 'NGN',
     images: ['/images/mockup/product-lotus.jpg'],
@@ -111,6 +118,7 @@ export const demoProducts: Product[] = [
     description:
       'A custom name plaque designed around your lettering, occasion, and finish.',
     category: 'Personalised',
+    subCollection: 'Name Plaque Collection',
     price: 15000000,
     currency: 'NGN',
     images: ['/images/mockup/product-name-plaque.jpg'],

@@ -10,36 +10,8 @@ import {
   FileCheck,
   Sparkles,
 } from 'lucide-react'
+import { collections } from '@/lib/collections'
 import { getProducts } from '@/lib/products'
-
-const cats = [
-  [
-    'MULTI-LAYERED MANDALAS',
-    'Intricate layers. Extraordinary depth.',
-    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043528/WhatsApp_Image_2026-08-29_at_11.37.54_PM_c8g9cn.jpg',
-  ],
-  [
-    'WALL ART',
-    'Statement pieces for contemporary spaces.',
-    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043453/Cosmic_Bloom_Angles_fm6fmp.png',
-  ],
-  [
-    'LIGHT & SHADOW',
-    'Laser-cut lampshades and lighting.',
-    'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044173/Lamps_jul8xt.png',
-  ],
-  // [
-  //   'ORNAMENTS',
-  //   'Small pieces with extraordinary detail.',
-  //   '/images/mockup/cat-ornament.jpg',
-  // ],
-  // [
-  //   'PERSONALISED',
-  //   'Made uniquely for you.',
-  //   '/images/mockup/cat-personalised.jpg',
-  // ],
-  ['BESPOKE & PERSONALISED', 'Made uniquely for you, your idea. Our craft.', 'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044009/Bespoke_2_vjcsk3.png'],
-]
 
 const journal = [
   [
@@ -112,25 +84,25 @@ export default async function Home() {
 
       <section className="container-luxe py-6 md:py-8">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-          {cats.map(([t, s, i]) => (
+          {collections.map((collection) => (
             <Link
-              href="/collections"
-              key={t}
+              href={`/collections/${collection.slug}`}
+              key={collection.slug}
               className="group overflow-hidden rounded-xl border border-black/10 bg-white"
             >
               <div className="overflow-hidden">
                 <img
-                  src={i}
-                  alt={t}
+                  src={collection.image}
+                  alt={collection.name}
                   className="aspect-[1.16/1] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-4">
                 <div className="text-[9px] sm:text-[11px] font-semibold leading-tight">
-                  {t}
+                  {collection.name.toUpperCase()}
                 </div>
                 <div className="mt-1 text-[11px] leading-4 text-black/55">
-                  {s}
+                  {collection.description}
                 </div>
               </div>
             </Link>
@@ -150,15 +122,23 @@ export default async function Home() {
               Multiple individual pieces of wood are precision-cut and assembled
               to create depth, geometry, texture and shadow.
             </p>
-            <Link href="/collections" className="btn-gold mt-6">
+            <Link
+              href="/collections/multi-layered-mandalas"
+              className="btn-gold mt-6"
+            >
               Explore mandalas
             </Link>
           </div>
           <div className="grid grid-cols-1">
             <img
+              src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044315/Cosmic_Bloom_Exploded_uxztqs.png"
+              alt="Exploded Cosmic Bloom mandala layers"
+              className="h-full min-h-[280px] w-full object-cover md:hidden"
+            />
+            <img
               src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788046462/file_00000000000c82108c8a852fdbabb82d_shwvsv.png"
               alt="Exploded wooden mandala layers"
-              className="h-full min-h-[340px] w-full object-cover"
+              className="hidden h-full min-h-[340px] w-full object-cover md:block"
             />
           </div>
         </div>

@@ -23,7 +23,9 @@
   "/(site)/journal/page": "app/(site)/journal/page.js",
   "/(site)/order-tracking/page": "app/(site)/order-tracking/page.js",
   "/(site)/product/[slug]/page": "app/(site)/product/[slug]/page.js",
-  "/(site)/shop/page": "app/(site)/shop/page.js",
+  "/(site)/collections/[slug]/[subSlug]/page": "app/(site)/collections/[slug]/[subSlug]/page.js",
+  "/(site)/collections/[slug]/page": "app/(site)/collections/[slug]/page.js",
+  "/(site)/collections/page": "app/(site)/collections/page.js",
   "/(site)/page": "app/(site)/page.js",
-  "/(site)/collections/page": "app/(site)/collections/page.js"
+  "/(site)/shop/page": "app/(site)/shop/page.js"
 }

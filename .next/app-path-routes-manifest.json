@@ -23,7 +23,9 @@
   "/(site)/journal/page": "/journal",
   "/(site)/order-tracking/page": "/order-tracking",
   "/(site)/product/[slug]/page": "/product/[slug]",
-  "/(site)/shop/page": "/shop",
+  "/(site)/collections/[slug]/[subSlug]/page": "/collections/[slug]/[subSlug]",
+  "/(site)/collections/[slug]/page": "/collections/[slug]",
+  "/(site)/collections/page": "/collections",
   "/(site)/page": "/",
-  "/(site)/collections/page": "/collections"
+  "/(site)/shop/page": "/shop"
 }

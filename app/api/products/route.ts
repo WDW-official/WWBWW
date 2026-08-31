@@ -30,6 +30,7 @@ export async function POST(request: Request) {
     subtitle: String(body.subtitle || body.category || 'Woodwork piece'),
     description: String(body.description || ''),
     category: String(body.category || 'Decorative Art'),
+    subCollection: body.subCollection ? String(body.subCollection) : undefined,
     price,
     currency: String(
       body.currency || process.env.PAYSTACK_CURRENCY || 'NGN'

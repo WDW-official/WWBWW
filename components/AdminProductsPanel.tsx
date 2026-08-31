@@ -94,8 +94,17 @@ export default function AdminProductsPanel({
     },
     {
       key: 'category',
-      header: 'Category',
-      render: (product) => <span className="text-sm">{product.category}</span>,
+      header: 'Collection',
+      render: (product) => (
+        <div className="text-sm">
+          <div>{product.category}</div>
+          {product.subCollection && (
+            <div className="mt-1 text-xs text-black/45">
+              {product.subCollection}
+            </div>
+          )}
+        </div>
+      ),
     },
     {
       key: 'price',

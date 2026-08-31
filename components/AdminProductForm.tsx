@@ -2,6 +2,7 @@
 
 import { ImagePlus, Loader2, Upload, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { collections } from '@/lib/collections'
 import type { Product } from '@/lib/types'
 import { useToast } from './ToastProvider'
 
@@ -20,11 +21,17 @@ export default function AdminProductForm({
   const [uploading, setUploading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState(
+    product?.category || collections[0]?.categoryValues[0] || ''
+  )
   const { toast } = useToast()
   const editing = Boolean(product)
 
   useEffect(() => {
     setImages(product?.images || [])
+    setSelectedCategory(
+      product?.category || collections[0]?.categoryValues[0] || ''
+    )
     setMessage('')
   }, [product])
 
@@ -136,10 +143,24 @@ export default function AdminProductForm({
         placeholder="Short subtitle"
         className="rounded-md border border-black/15 px-4 py-3 text-sm outline-none"
       />
-      <input
+      <select
         name="category"
-        defaultValue={product?.category || ''}
-        placeholder="Collection"
+        value={selectedCategory}
+        onChange={(event) => {
+          setSelectedCategory(event.target.value)
+        }}
+        className="rounded-md border border-black/15 bg-white px-4 py-3 text-sm outline-none"
+      >
+        {collections.map((collection) => (
+          <option key={collection.slug} value={collection.categoryValues[0]}>
+            {collection.name}
+          </option>
+        ))}
+      </select>
+      <input
+        name="subCollection"
+        defaultValue={product?.subCollection || ''}
+        placeholder="Sub-collection"
         className="rounded-md border border-black/15 px-4 py-3 text-sm outline-none"
       />
       <input

@@ -5,6 +5,7 @@ export type Product = {
   subtitle: string
   description: string
   category: string
+  subCollection?: string
   price: number
   currency: string
   images: string[]

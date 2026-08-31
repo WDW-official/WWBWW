@@ -759,6 +759,12 @@ video {
 .min-h-9 {
   min-height: 2.25rem;
 }
+.min-h-\[100px\] {
+  min-height: 100px;
+}
+.min-h-\[280px\] {
+  min-height: 280px;
+}
 .min-h-\[290px\] {
   min-height: 290px;
 }
@@ -767,6 +773,9 @@ video {
 }
 .min-h-\[310px\] {
   min-height: 310px;
+}
+.min-h-\[320px\] {
+  min-height: 320px;
 }
 .min-h-\[340px\] {
   min-height: 340px;
@@ -1309,6 +1318,9 @@ video {
 .text-\[38px\] {
   font-size: 38px;
 }
+.text-\[9px\] {
+  font-size: 9px;
+}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1328,12 +1340,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[8px\] {
-  font-size: 8px;
-}
-.text-\[9px\] {
-  font-size: 9px;
 }
 .font-bold {
   font-weight: 700;
@@ -1486,6 +1492,9 @@ video {
 .text-white\/70 {
   color: rgb(255 255 255 / 0.7);
 }
+.text-white\/75 {
+  color: rgb(255 255 255 / 0.75);
+}
 .text-white\/80 {
   color: rgb(255 255 255 / 0.8);
 }
@@ -1494,6 +1503,9 @@ video {
 }
 .opacity-100 {
   opacity: 1;
+}
+.opacity-60 {
+  opacity: 0.6;
 }
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -1782,17 +1794,13 @@ img {
     line-height: 1;
   }
 
+  .sm\:text-\[11px\] {
+    font-size: 11px;
+  }
+
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-\[9px\] {
-    font-size: 9px;
-  }
-
-  .sm\:text-\[11px\] {
-    font-size: 11px;
   }
 }
 @media (min-width: 768px) {
@@ -1805,8 +1813,24 @@ img {
     margin-top: 0px;
   }
 
+  .md\:mt-3 {
+    margin-top: 0.75rem;
+  }
+
+  .md\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
   .md\:flex {
     display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:aspect-\[1\.08\/1\] {
@@ -1819,6 +1843,14 @@ img {
 
   .md\:min-h-\[390px\] {
     min-height: 390px;
+  }
+
+  .md\:min-h-\[420px\] {
+    min-height: 420px;
+  }
+
+  .md\:min-h-\[440px\] {
+    min-height: 440px;
   }
 
   .md\:grid-cols-2 {
@@ -1939,13 +1971,18 @@ img {
     font-size: 72px;
   }
 
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
   .md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
   }
 
-  .md\:text-\[9px\] {
-    font-size: 9px;
+  .md\:leading-7 {
+    line-height: 1.75rem;
   }
 }
 @media (min-width: 1024px) {

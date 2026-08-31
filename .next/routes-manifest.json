@@ -39,6 +39,23 @@
       "namedRegex": "^/api/admin/products/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/collections/[slug]",
+      "regex": "^/collections/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/collections/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/collections/[slug]/[subSlug]",
+      "regex": "^/collections/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPsubSlug": "nxtPsubSlug"
+      },
+      "namedRegex": "^/collections/(?<nxtPslug>[^/]+?)/(?<nxtPsubSlug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/product/[slug]",
       "regex": "^/product/([^/]+?)(?:/)?$",
       "routeKeys": {
