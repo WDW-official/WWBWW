@@ -64,9 +64,9 @@ export default function Footer() {
           <p className="text-sm text-white/70">
             Instagram · Facebook · TikTok · Pinterest
           </p>
-          <div className="mt-6 text-xs text-white/40">
+          {/* <div className="mt-6 text-xs text-white/40">
             Secure checkout · Visa · Mastercard · Apple Pay
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/40">

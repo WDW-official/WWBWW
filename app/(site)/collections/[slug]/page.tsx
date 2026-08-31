@@ -1,5 +1,13 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Check,
+  FileCheck,
+  ImagePlus,
+  Palette,
+  Ruler,
+  Sparkles,
+} from 'lucide-react'
 import { notFound } from 'next/navigation'
 import AutoFilterSelect from '@/components/AutoFilterSelect'
 import ProductCard from '@/components/ProductCard'
@@ -19,6 +27,15 @@ export const dynamic = 'force-dynamic'
 export async function generateStaticParams() {
   return collections.map((collection) => ({ slug: collection.slug }))
 }
+
+const bespokeSteps = [
+  ['Tell us what you want', Check],
+  ['Upload artwork or inspiration', ImagePlus],
+  ['Choose your material', Palette],
+  ['Choose your size', Ruler],
+  ['Receive a design proof', FileCheck],
+  ['We cut, engrave & create', Sparkles],
+]
 
 export default async function CollectionPage({
   params,
@@ -133,6 +150,42 @@ export default async function CollectionPage({
           View all collections <ArrowRight size={14} />
         </Link>
       </section>
+      {collection.slug === 'bespoke-and-personalised' && (
+        <section className="container-luxe py-5 md:py-10">
+          <div className="grid overflow-hidden rounded-xl bg-[#171717] text-white lg:grid-cols-[.55fr_1.45fr]">
+            <img
+              src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788219539/BESPOKE_v5q1xe.png"
+              alt="Bespoke personalised wooden artwork"
+              className="h-full min-h-[260px] w-full object-cover md:min-h-[310px]"
+            />
+            <div className="grid gap-8 p-8 md:p-12 lg:grid-cols-[.9fr_1.1fr]">
+              <div>
+                <h2 className="editorial text-4xl leading-[.9] md:text-5xl">
+                  YOUR IDEA.
+                  <br />
+                  OUR CRAFT.
+                </h2>
+                <p className="mt-5 text-sm leading-6 text-white/65">
+                  Create something that exists nowhere else. From names and
+                  dates to intricate artwork and completely original designs, we
+                  turn your ideas into precision-cut wooden pieces.
+                </p>
+                <Link href="/custom-work" className="btn-gold mt-6">
+                  Start a custom project
+                </Link>
+              </div>
+              <div className="grid gap-3 text-xs sm:grid-cols-2">
+                {bespokeSteps.map(([step, Icon]) => (
+                  <div className="flex gap-3" key={step as string}>
+                    <Icon className="text-[#c89a59]" size={17} />
+                    <span>{step as string}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   )
 }

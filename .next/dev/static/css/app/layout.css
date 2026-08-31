@@ -762,6 +762,9 @@ video {
 .min-h-\[100px\] {
   min-height: 100px;
 }
+.min-h-\[260px\] {
+  min-height: 260px;
+}
 .min-h-\[280px\] {
   min-height: 280px;
 }
@@ -1841,6 +1844,10 @@ img {
     height: 5rem;
   }
 
+  .md\:min-h-\[310px\] {
+    min-height: 310px;
+  }
+
   .md\:min-h-\[390px\] {
     min-height: 390px;
   }
@@ -1920,6 +1927,11 @@ img {
   .md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .md\:py-12 {
