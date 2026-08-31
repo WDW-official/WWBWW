@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "b99bf278a25c496360f1c82a3db35e4c",
-    "previewModeSigningKey": "7223dca6b86b1ae9e35252c553c44c898204063e24ecb61628cae5e4a50f3e09",
-    "previewModeEncryptionKey": "494ba0c377bb7de72fa857c311bf6c9ab079859ea25a6997f30659277db14c1f"
-  }
-}
+{"version":4,"routes":{"/collections/multi-layered-mandalas":{},"/collections/wall-art":{},"/collections/light-and-shadow":{},"/collections/bespoke-and-personalised":{}},"dynamicRoutes":{"/collections/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/collections/[slug]","routeRegex":"^\\/collections\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"dafd564c6e021aebe75799b73798b433","previewModeSigningKey":"29ee3aab3ceecc826a1cdb0eb0d51f6f5a1e4daf11739bf847bd736759c97ce7","previewModeEncryptionKey":"5678ff46efd9f58aee1ba0be4fbca20e9c725880bc364380d8671a209243bd08"}}

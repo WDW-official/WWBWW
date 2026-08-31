@@ -33,9 +33,9 @@ export const collections: Collection[] = [
     categoryValues: ['Mandalas'],
     description: 'Intricate layers, carved geometry, and extraordinary depth.',
     image:
-      'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043528/WhatsApp_Image_2026-08-29_at_11.37.54_PM_c8g9cn.jpg',
+      'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044277/OWIWI_Close_1_jmh0nb.png',
     bannerImage:
-      'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788043528/WhatsApp_Image_2026-08-29_at_11.37.54_PM_c8g9cn.jpg',
+      'https://res.cloudinary.com/dzn1k1z8r/image/upload/v1788044277/OWIWI_Close_1_jmh0nb.png',
     subCollections: [],
   },
   {
